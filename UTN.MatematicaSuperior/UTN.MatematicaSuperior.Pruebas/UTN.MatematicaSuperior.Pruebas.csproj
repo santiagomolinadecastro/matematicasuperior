@@ -53,11 +53,18 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="NewtonGregory_Progresivo_Tests.cs" />
+    <Compile Include="NewtonGregory_Regresivo_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTN.MatematicaSuperior.Negocio\UTN.MatematicaSuperior.Negocio.csproj">
+      <Project>{4CDBBB0F-8CAC-4244-801A-D18B8D9AB41E}</Project>
+      <Name>UTN.MatematicaSuperior.Negocio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

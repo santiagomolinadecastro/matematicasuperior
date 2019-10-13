@@ -52,5 +52,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UTN.MatematicaSuperior.Negocio\UTN.MatematicaSuperior.Negocio.csproj">
+      <Project>{4CDBBB0F-8CAC-4244-801A-D18B8D9AB41E}</Project>
+      <Name>UTN.MatematicaSuperior.Negocio</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

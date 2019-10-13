@@ -1,0 +1,9 @@
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.dll
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.pdb
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Extreme.Numerics.dll
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Extreme.Numerics.xml
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csprojAssemblyReference.cache
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CopyComplete
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.dll
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.pdb
