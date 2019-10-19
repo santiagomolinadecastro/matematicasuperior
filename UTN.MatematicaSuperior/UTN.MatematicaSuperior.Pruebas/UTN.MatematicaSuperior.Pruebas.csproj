@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EvaluarPolinomio_Tests.cs" />
+    <Compile Include="Lagrange_Tests.cs" />
     <Compile Include="NewtonGregory_Progresivo_Tests.cs" />
     <Compile Include="NewtonGregory_Regresivo_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
