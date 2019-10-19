@@ -7,3 +7,11 @@ C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.Matemat
 C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CopyComplete
 C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.dll
 C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.pdb
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.dll
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.pdb
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Extreme.Numerics.dll
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Extreme.Numerics.xml
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CoreCompileInputs.cache
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CopyComplete
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.dll
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.pdb
