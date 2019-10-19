@@ -15,3 +15,4 @@ C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Neg
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CopyComplete
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.dll
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.pdb
+C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csprojAssemblyReference.cache
