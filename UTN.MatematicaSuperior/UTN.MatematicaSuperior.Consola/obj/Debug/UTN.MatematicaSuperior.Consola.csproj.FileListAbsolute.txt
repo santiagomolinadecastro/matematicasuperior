@@ -29,3 +29,15 @@ C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Con
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.csproj.CopyComplete
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.exe
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.pdb
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\UTN.MatematicaSuperior.Consola.exe.config
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\UTN.MatematicaSuperior.Consola.exe
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\UTN.MatematicaSuperior.Consola.pdb
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\Extreme.Numerics.dll
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\UTN.MatematicaSuperior.Negocio.dll
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\UTN.MatematicaSuperior.Negocio.pdb
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\Extreme.Numerics.xml
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.csprojAssemblyReference.cache
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.csproj.CoreCompileInputs.cache
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.csproj.CopyComplete
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.exe
+C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.pdb

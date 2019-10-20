@@ -24,7 +24,7 @@ namespace UTN.MatematicaSuperior.Negocio
 
         public void InicializarPuntosY(string puntosY)
         {
-            _puntosX = new List<double>();
+            _puntosY = new List<double>();
 
             var arrDatos = puntosY.Split(';');
 
