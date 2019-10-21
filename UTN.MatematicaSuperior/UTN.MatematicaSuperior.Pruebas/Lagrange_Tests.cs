@@ -10,7 +10,7 @@ namespace UTN.MatematicaSuperior.Pruebas
         private List<double> xList, yList;
 
         [TestMethod]
-        public void Lagrange_()
+        public void Lagrange_1()
         {
             xList = new List<double> { -5, -1, 3, 5 };
             yList = new List<double> { 333, -3, -83, -387 };
@@ -18,6 +18,17 @@ namespace UTN.MatematicaSuperior.Pruebas
             string interpolacion = Lagrange.Interpolar(xList, yList);
 
             Assert.AreEqual("-3x^3-x^2+3x-2", interpolacion);
+        }
+
+        [TestMethod]
+        public void Lagrange_2()
+        {
+            xList = new List<double> { 1, 2, 4 };
+            yList = new List<double> { 1, 4, 16 };
+
+            string interpolacion = Lagrange.Interpolar(xList, yList);
+
+            Assert.AreEqual("x^2", interpolacion);
         }
     }
 }

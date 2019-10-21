@@ -55,19 +55,19 @@ namespace UTN.MatematicaSuperior.Negocio
             }
         }
 
-        public string AproximacionPorNewtonGregoryProgresivo()
+        public string InterpolarNGProgresivo()
+        {
+            return NewtonGregory.Interpolar(true, _puntosX, _puntosY);
+        }
+
+        public string InterpolarNGRegresivo()
         {
             throw new NotImplementedException();
         }
 
-        public string AproximacionPorNewtonGregoryRegresivo()
+        public string InterpolarLagrange()
         {
-            throw new NotImplementedException();
-        }
-
-        public string AproximacionPorLagrange()
-        {
-            throw new NotImplementedException();
+            return Lagrange.Interpolar(_puntosX, _puntosY);
         }
     }
 }
