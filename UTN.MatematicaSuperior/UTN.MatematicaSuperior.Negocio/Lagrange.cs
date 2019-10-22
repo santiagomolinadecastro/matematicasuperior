@@ -19,34 +19,58 @@ namespace UTN.MatematicaSuperior.Negocio
             //Paso la lista de y a un array
             double[] y = yList.ToArray();
 
-            // instancio el polinomio degrado n
-            Polynomial polinomio = new Polynomial(n);
-            polinomio[0] = 0;
+            // Cada uno de los polinomios base, necesito tenerlos. Pasar a atributo de clase
+            Polynomial[] Lj = new Polynomial[n + 1];
 
-            Polynomial[] Lj = new Polynomial[n + 1]; // Cada uno de los polinomios base
-            Polynomial li;
+            // de cada Lj, denominador del productorio
+            double[] denominadores = new double[n + 1];
+            double comun_denominador = 1;
 
             // Por cada término calculo las bases polinómicas
             for (int j = 0; j <= n; j++)
             {
-                // Base
-                Lj[j] = new Polynomial(n);
-                Lj[j][0] = y[j];
+                double[] raices = new double[n];
+                int aux = 0;
+                double denominador = 1;
 
                 for (int i = 0; i <= n; i++)
                 {
                     if (i == j) continue; // Filtro
 
-                    // Voy multiplicando polinomios
-                    li = new Polynomial(1);
-                    li[0] = (-x[i]) / (x[j] - x[i]);
-                    li[1] = 1 / (x[j] - x[i]);
+                    raices[aux] = x[i];
+                    aux++;
 
-                    Lj[j] = Lj[j] * li;
+                    denominador = denominador * (x[j] - x[i]);
                 }
 
-                polinomio += Lj[j];
+                denominadores[j] = denominador;
+                comun_denominador = comun_denominador * denominador;
+
+                Lj[j] = Polynomial.FromRoots(raices);
+
+                Polynomial factor = new Polynomial(0);
+                factor[0] = y[j];
+
+                Lj[j] = Lj[j] * factor;
             }
+
+            // instancio el polinomio de grado n que será el resultado
+            Polynomial polinomio = new Polynomial(n);
+            polinomio[0] = 0;
+
+            // multiplico cada Li con el factor del común divisor
+            for (int j = 0; j <= n; j++)
+            {
+                Polynomial factor = new Polynomial(0);
+                factor[0] = comun_denominador / denominadores[j];
+
+                polinomio += ( Lj[j] * factor);
+            }
+
+            Polynomial divisor = new Polynomial(0);
+            divisor[0] = comun_denominador;
+
+            polinomio = polinomio / divisor;
 
             return polinomio.ToString();
         }
