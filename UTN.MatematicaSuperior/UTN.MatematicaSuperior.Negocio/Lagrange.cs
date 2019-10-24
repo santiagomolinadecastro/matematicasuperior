@@ -6,6 +6,9 @@ namespace UTN.MatematicaSuperior.Negocio
 {
     public static class Lagrange
     {
+        // Cada uno de los polinomios base, necesito tenerlos. Pasar a atributo de clase
+        public Polynomial[] Lj;
+        
         public static string Interpolar(List<double> xList, List<double> yList)
         {
             //Nos manejamos con arrays para hacer más eficientes las operaciones.
@@ -19,9 +22,8 @@ namespace UTN.MatematicaSuperior.Negocio
             //Paso la lista de y a un array
             double[] y = yList.ToArray();
 
-            // Cada uno de los polinomios base, necesito tenerlos. Pasar a atributo de clase
-            Polynomial[] Lj = new Polynomial[n + 1];
-
+            Lj = new Polynomial[n + 1];
+            
             // de cada Lj, denominador del productorio
             double[] denominadores = new double[n + 1];
             double comun_denominador = 1;
@@ -58,6 +60,9 @@ namespace UTN.MatematicaSuperior.Negocio
             Polynomial polinomio = new Polynomial(n);
             polinomio[0] = 0;
 
+            Polynomial divisor = new Polynomial(0);
+            divisor[0] = comun_denominador;
+            
             // multiplico cada Li con el factor del común divisor
             for (int j = 0; j <= n; j++)
             {
@@ -65,10 +70,10 @@ namespace UTN.MatematicaSuperior.Negocio
                 factor[0] = comun_denominador / denominadores[j];
 
                 polinomio += ( Lj[j] * factor);
+                
+                // al Lj lo divido para ya tenerlo listo
+                Lj[j] = Lj[j] / divisor;
             }
-
-            Polynomial divisor = new Polynomial(0);
-            divisor[0] = comun_denominador;
 
             polinomio = polinomio / divisor;
 
