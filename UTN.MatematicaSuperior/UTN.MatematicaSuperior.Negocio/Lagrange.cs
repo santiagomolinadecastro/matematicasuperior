@@ -7,7 +7,7 @@ namespace UTN.MatematicaSuperior.Negocio
     public static class Lagrange
     {
         // Cada uno de los polinomios base, necesito tenerlos. Pasar a atributo de clase
-        public Polynomial[] Lj;
+        public static Polynomial[] Lj;
         
         public static string Interpolar(List<double> xList, List<double> yList)
         {
