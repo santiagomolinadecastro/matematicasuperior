@@ -6,7 +6,7 @@ namespace UTN.MatematicaSuperior.Negocio
 {
     public static class NewtonGregory
     {
-        public static string Interpolar(bool esProgresivo, List<double> xList, List<double> yList)
+        public static Polynomial Interpolar(bool esProgresivo, List<double> xList, List<double> yList)
         {
             //Nos manejamos con arrays para hacer más eficientes las operaciones.
 
@@ -82,7 +82,7 @@ namespace UTN.MatematicaSuperior.Negocio
             }
 
 
-            return polinomio.ToString();
+            return polinomio;
 
             // Dibujo el árbol.
             //for (int i = 0; i < n; i++)

@@ -9,7 +9,7 @@ namespace UTN.MatematicaSuperior.Negocio
         // Cada uno de los polinomios base, necesito tenerlos. Pasar a atributo de clase
         public static Polynomial[] Lj;
         
-        public static string Interpolar(List<double> xList, List<double> yList)
+        public static Polynomial Interpolar(List<double> xList, List<double> yList)
         {
             //Nos manejamos con arrays para hacer más eficientes las operaciones.
 
@@ -77,7 +77,7 @@ namespace UTN.MatematicaSuperior.Negocio
 
             polinomio = polinomio / divisor;
 
-            return polinomio.ToString();
+            return polinomio;
         }
     }
 }

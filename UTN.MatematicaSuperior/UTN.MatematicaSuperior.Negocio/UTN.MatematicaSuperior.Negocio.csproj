@@ -48,7 +48,7 @@
     <Compile Include="Lagrange.cs" />
     <Compile Include="NewtonGregory.cs" />
     <Compile Include="Orquestador.cs" />
-    <Compile Include="Polinomio.cs" />
+    <Compile Include="Evaluacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

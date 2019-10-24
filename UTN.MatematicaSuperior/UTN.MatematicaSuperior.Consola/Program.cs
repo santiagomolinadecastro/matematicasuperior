@@ -134,13 +134,6 @@ namespace UTN.MatematicaSuperior.Consola
 
                 opcionSeleccionada = MenuInterpolaciones();
             } while (opcionSeleccionada != ConsoleKey.D);
-        }        
-
-        public static void MenuOpcionIncorrecta()
-        {
-            Console.Clear();
-            Console.WriteLine("Opcion incorrecta, presione una tecla para volver al menú anterior.");
-            Console.ReadKey();
         }
 
         public static void MostrarPasosCalculo()
@@ -153,8 +146,31 @@ namespace UTN.MatematicaSuperior.Consola
         public static void EspecializarPolinomio()
         {
             Console.Clear();
-            Console.WriteLine("Presione una tecla para volver al menú principal.");
+
+            if (_orquestador.PuntosIngresados())
+            {
+                Console.WriteLine("Ingrese el valor de k a especializar: ");
+
+                var k = Console.ReadLine();
+
+                if (_orquestador.DatosValidos(k))
+                {
+                    _orquestador.InicializarK(k);
+
+                }
+
+                var resultado = _orquestador.EvaluarEnK();
+                Console.WriteLine("El valor del polinomio especializado es: " + resultado);
+            }
+            else
+            {
+                Console.WriteLine("Por favor, ingresar los puntos para interpolar el polinomio.");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Presione una tecla para continuar.");
             Console.ReadKey();
+
         }
 
         public static void AlterarValores()
@@ -168,6 +184,13 @@ namespace UTN.MatematicaSuperior.Consola
         {
             Console.Clear();
             Console.WriteLine("Datos inválidos, presione una tecla para volver al menu principal.");
+            Console.ReadKey();
+        }
+
+        public static void MenuOpcionIncorrecta()
+        {
+            Console.Clear();
+            Console.WriteLine("Opcion incorrecta, presione una tecla para volver al menú anterior.");
             Console.ReadKey();
         }
     }

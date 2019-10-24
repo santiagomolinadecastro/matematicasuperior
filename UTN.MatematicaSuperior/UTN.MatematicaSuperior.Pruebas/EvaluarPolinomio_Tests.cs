@@ -16,7 +16,7 @@ namespace UTN.MatematicaSuperior.Pruebas
         {
             List<double> coeficientes = new List<double>{ 2.3, 7.1, 1.1 };
 
-            var polinomio = new Polinomio(coeficientes);
+            var polinomio = new Evaluacion(coeficientes);
 
             var resultado = polinomio.EvaluarPolinomio(3);
 
@@ -28,7 +28,7 @@ namespace UTN.MatematicaSuperior.Pruebas
         {
             List<double> coeficientes = new List<double> { 2.3, 7.1, 1.1 };
 
-            var polinomio = new Polinomio(coeficientes);
+            var polinomio = new Evaluacion(coeficientes);
 
             var resultado = polinomio.EvaluarPolinomio(0);
 
@@ -40,7 +40,7 @@ namespace UTN.MatematicaSuperior.Pruebas
         {
             List<double> coeficientes = new List<double> { 0, 7.1, 1.1 };
 
-            var polinomio = new Polinomio(coeficientes);
+            var polinomio = new Evaluacion(coeficientes);
 
             var resultado = polinomio.EvaluarPolinomio(0);
 

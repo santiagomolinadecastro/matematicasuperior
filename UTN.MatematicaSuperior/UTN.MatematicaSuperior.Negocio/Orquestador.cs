@@ -7,6 +7,7 @@ namespace UTN.MatematicaSuperior.Negocio
     {
         private List<double> _puntosX;
         private List<double> _puntosY;
+        private double _k;
 
         public void InicializarPuntosX(string puntosX)
         {
@@ -36,6 +37,11 @@ namespace UTN.MatematicaSuperior.Negocio
             }
         }
 
+        public void InicializarK(string k)
+        {
+            _k = double.Parse(k);
+        }
+
         public bool DatosValidos(string datos)
         {
             try
@@ -49,25 +55,39 @@ namespace UTN.MatematicaSuperior.Negocio
 
                 return true;
 
-            } catch (Exception ex)
+            } catch (Exception)
             {
                 return false;
             }
         }
 
+        public bool PuntosIngresados()
+        {
+            return _puntosX != null && _puntosY != null;
+        }
+
         public string InterpolarNGProgresivo()
         {
-            return NewtonGregory.Interpolar(true, _puntosX, _puntosY);
+            return NewtonGregory.Interpolar(true, _puntosX, _puntosY).ToString();
         }
 
         public string InterpolarNGRegresivo()
         {
-            throw new NotImplementedException();
+            return NewtonGregory.Interpolar(false, _puntosX, _puntosY).ToString();
         }
 
         public string InterpolarLagrange()
         {
-            return Lagrange.Interpolar(_puntosX, _puntosY);
+            return Lagrange.Interpolar(_puntosX, _puntosY).ToString();
         }
+
+        public string EvaluarEnK()
+        {
+            var polinomio = NewtonGregory.Interpolar(true, _puntosX, _puntosY);
+
+            return Evaluacion.EvaluarPolinomio(polinomio, _k).ToString();
+        }
+
+        
     }
 }
