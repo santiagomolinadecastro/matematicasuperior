@@ -176,8 +176,44 @@ namespace UTN.MatematicaSuperior.Consola
         public static void AlterarValores()
         {
             Console.Clear();
-            Console.WriteLine("Presione una tecla para volver al menú principal.");
-            Console.ReadKey();
+            
+
+            if ((_orquestador.PuntosX != null) && (_orquestador.PuntosY != null))
+            {
+
+                Console.WriteLine("Valores ingresados previamente:");
+                Console.Write("X: ");
+
+                foreach (var puntoX in _orquestador.PuntosX)
+                {
+                    Console.Write(puntoX + ";");
+                }
+
+                Console.WriteLine("");
+                Console.Write("Y: ");
+
+                foreach (var puntoY in _orquestador.PuntosY)
+                {
+                    Console.Write(puntoY + ";");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No hay valores iniciales. Presione una tecla para volver al menú principal.");
+                Console.ReadKey();
+                return;
+            }
+
+            Console.WriteLine("");
+            Console.WriteLine("");
+            Console.WriteLine("Seleccione la opcion correcta ");
+            Console.WriteLine("A. Volver a ingresar puntos.");
+            Console.WriteLine("B. Volver al menú principal.");
+
+            var opcionSeleccionada = Console.ReadKey();
+
+            if (opcionSeleccionada.Key == ConsoleKey.B) return;
+            else MenuIngresoDatos();
         }
 
         public static void DatosInvalidos()

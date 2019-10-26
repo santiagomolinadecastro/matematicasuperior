@@ -5,13 +5,16 @@ namespace UTN.MatematicaSuperior.Negocio
 {
     public class Orquestador
     {
-        private List<double> _puntosX;
-        private List<double> _puntosY;
         private double _k;
 
+        public List<double> PuntosX { get; set; } 
+        public List<double> PuntosY { get; set; }
+
+
+        // Ahora los puntos X e Y son propiedades, no atributos. Si hay tiempo, evaluar si conviene poner esto en el setter de la priopiedad.
         public void InicializarPuntosX(string puntosX)
         {
-            _puntosX = new List<double>();
+            PuntosX = new List<double>();
 
             var arrDatos = puntosX.Split(';');
 
@@ -19,13 +22,14 @@ namespace UTN.MatematicaSuperior.Negocio
             {
                 var valor = double.Parse(dato);
 
-                _puntosX.Add(valor);
+                PuntosX.Add(valor);
             }
         }
 
+        // Ahora los puntos X e Y son propiedades, no atributos. Si hay tiempo, evaluar si conviene poner esto en el setter de la priopiedad.
         public void InicializarPuntosY(string puntosY)
         {
-            _puntosY = new List<double>();
+            PuntosY = new List<double>();
 
             var arrDatos = puntosY.Split(';');
 
@@ -33,7 +37,7 @@ namespace UTN.MatematicaSuperior.Negocio
             {
                 var valor = double.Parse(dato);
 
-                _puntosY.Add(valor);
+                PuntosY.Add(valor);
             }
         }
 
@@ -63,27 +67,27 @@ namespace UTN.MatematicaSuperior.Negocio
 
         public bool PuntosIngresados()
         {
-            return _puntosX != null && _puntosY != null;
+            return PuntosX != null && PuntosY != null;
         }
 
         public string InterpolarNGProgresivo()
         {
-            return NewtonGregory.Interpolar(true, _puntosX, _puntosY).ToString();
+            return NewtonGregory.Interpolar(true, PuntosX, PuntosY).ToString();
         }
 
         public string InterpolarNGRegresivo()
         {
-            return NewtonGregory.Interpolar(false, _puntosX, _puntosY).ToString();
+            return NewtonGregory.Interpolar(false, PuntosX, PuntosY).ToString();
         }
 
         public string InterpolarLagrange()
         {
-            return Lagrange.Interpolar(_puntosX, _puntosY).ToString();
+            return Lagrange.Interpolar(PuntosX, PuntosY).ToString();
         }
 
         public string EvaluarEnK()
         {
-            var polinomio = NewtonGregory.Interpolar(true, _puntosX, _puntosY);
+            var polinomio = NewtonGregory.Interpolar(true, PuntosX, PuntosY);
 
             return Evaluacion.EvaluarPolinomio(polinomio, _k).ToString();
         }
