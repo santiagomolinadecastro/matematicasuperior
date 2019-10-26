@@ -65,6 +65,14 @@ namespace UTN.MatematicaSuperior.Negocio
             }
         }
 
+        public bool DatosValidosX(string datos)
+        {
+            // Valido que los puntos X esten ordenados.
+            var arrDatos = datos.Split(';');
+
+            return SortTools.IsSorted(arrDatos);
+        }
+
         public bool PuntosIngresados()
         {
             return PuntosX != null && PuntosY != null;

@@ -87,7 +87,7 @@ namespace UTN.MatematicaSuperior.Consola
 
             var valoresX = Console.ReadLine();
 
-            if (_orquestador.DatosValidos(valoresX))
+            if (_orquestador.DatosValidos(valoresX) && _orquestador.DatosValidosX(valoresX))
             {
                 _orquestador.InicializarPuntosX(valoresX);
 

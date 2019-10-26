@@ -50,6 +50,7 @@
     <Compile Include="Orquestador.cs" />
     <Compile Include="Evaluacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SortTools.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
