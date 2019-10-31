@@ -8,7 +8,7 @@ namespace UTN.MatematicaSuperior.Negocio
     {
         // Cada uno de los polinomios base, necesito tenerlos. Pasar a atributo de clase
         public static Polynomial[] Lj;
-        
+
         public static Polynomial Interpolar(List<double> xList, List<double> yList)
         {
             //Nos manejamos con arrays para hacer más eficientes las operaciones.

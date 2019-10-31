@@ -147,7 +147,7 @@ namespace UTN.MatematicaSuperior.Consola
         {
             Console.Clear();
 
-            if (_orquestador.PuntosIngresados())
+            if (_orquestador.PuntosIngresados() && _orquestador.PolinomioInterpolado())
             {
                 Console.WriteLine("Ingrese el valor de k a especializar: ");
 

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using Extreme.Mathematics.Curves;
 
 namespace UTN.MatematicaSuperior.Negocio
 {
     public class Orquestador
     {
         private double _k;
+        private Polynomial polinomio;
 
         public List<double> PuntosX { get; set; } 
         public List<double> PuntosY { get; set; }
@@ -78,25 +80,35 @@ namespace UTN.MatematicaSuperior.Negocio
             return PuntosX != null && PuntosY != null;
         }
 
+        public bool PolinomioInterpolado()
+        {
+            // Dice si ya se interpoló, útil si hay q especializar en k
+            return polinomio != null;
+        }
+
         public string InterpolarNGProgresivo()
         {
-            return NewtonGregory.Interpolar(true, PuntosX, PuntosY).ToString();
+            polinomio = NewtonGregory.Interpolar(true, PuntosX, PuntosY);
+
+            return polinomio.ToString();
         }
 
         public string InterpolarNGRegresivo()
         {
-            return NewtonGregory.Interpolar(false, PuntosX, PuntosY).ToString();
+            polinomio = NewtonGregory.Interpolar(false, PuntosX, PuntosY);
+
+            return polinomio.ToString();
         }
 
         public string InterpolarLagrange()
         {
-            return Lagrange.Interpolar(PuntosX, PuntosY).ToString();
+            polinomio = Lagrange.Interpolar(PuntosX, PuntosY);
+
+            return polinomio.ToString();
         }
 
         public string EvaluarEnK()
         {
-            var polinomio = NewtonGregory.Interpolar(true, PuntosX, PuntosY);
-
             return Evaluacion.EvaluarPolinomio(polinomio, _k).ToString();
         }
 

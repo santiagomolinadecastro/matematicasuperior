@@ -2,7 +2,7 @@
 
 namespace UTN.MatematicaSuperior.Negocio
 {
-    public class Evaluacion
+    public static class Evaluacion
     {
         public static double EvaluarPolinomio(Polynomial polinomio, double k)
         {
