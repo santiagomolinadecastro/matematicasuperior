@@ -37,23 +37,23 @@ namespace UTN.MatematicaSuperior.Negocio
 
                 for (int i = 0; i <= n; i++)
                 {
-                    if (i == j) continue; // Filtro
-
-                    raices[aux] = x[i];
-                    aux++;
-
-                    denominador = denominador * (x[j] - x[i]);
+                    if (i != j) // Filtro
+                    {
+                        raices[aux] = x[i];
+                        aux++;
+                        denominador *= (x[j] - x[i]);
+                    }
                 }
 
                 denominadores[j] = denominador;
-                comun_denominador = comun_denominador * denominador;
+                comun_denominador *= denominador;
 
                 Lj[j] = Polynomial.FromRoots(raices);
 
                 Polynomial factor = new Polynomial(0);
                 factor[0] = y[j];
 
-                Lj[j] = Lj[j] * factor;
+                Lj[j] *= factor;
             }
 
             // instancio el polinomio de grado n que será el resultado
@@ -68,14 +68,13 @@ namespace UTN.MatematicaSuperior.Negocio
             {
                 Polynomial factor = new Polynomial(0);
                 factor[0] = comun_denominador / denominadores[j];
-
                 polinomio += ( Lj[j] * factor);
                 
                 // al Lj lo divido para ya tenerlo listo
-                Lj[j] = Lj[j] / divisor;
+                Lj[j] /= divisor;
             }
 
-            polinomio = polinomio / divisor;
+            polinomio /= divisor;
 
             pasos = "Estos son los pasos de Lagrange.";
 
