@@ -8,38 +8,72 @@ namespace UTN.MatematicaSuperior.Negocio
     {
         private double _k;
         private Polynomial polinomio;
-
         public List<double> PuntosX { get; set; } 
         public List<double> PuntosY { get; set; }
-
+        public string Pasos { get; set; }
 
         // Ahora los puntos X e Y son propiedades, no atributos. Si hay tiempo, evaluar si conviene poner esto en el setter de la priopiedad.
-        public void InicializarPuntosX(string puntosX)
+        public void InicializarPuntosX(string puntos)
         {
             PuntosX = new List<double>();
+            AgregarPuntos(puntos, true);
+        }
 
+        // Ahora los puntos X e Y son propiedades, no atributos. Si hay tiempo, evaluar si conviene poner esto en el setter de la priopiedad.
+        public void InicializarPuntosY(string puntos)
+        {
+            PuntosY = new List<double>();
+            AgregarPuntos(puntos, false);
+        }
+
+        public void AgregarPuntosX(string puntos)
+        {
+            AgregarPuntos(puntos, true);
+        }
+
+        public void AgregarPuntosY(string puntos)
+        {
+            AgregarPuntos(puntos, false);
+        }
+
+        private void AgregarPuntos(string puntos, bool sonX)
+        {
+            var arrDatos = puntos.Split(';');
+
+            foreach (var dato in arrDatos)
+            {
+                var valor = double.Parse(dato);
+
+                if (sonX)
+                {
+                    if (PuntosX.Contains(valor))
+                    {
+                        throw new ValorRepetidoException();
+                    }
+
+                    PuntosX.Add(valor);
+                }
+                else
+                {
+                    PuntosY.Add(valor);
+                }
+            }
+        }
+
+        public void EliminarPuntos(string puntosX)
+        {
             var arrDatos = puntosX.Split(';');
 
             foreach (var dato in arrDatos)
             {
                 var valor = double.Parse(dato);
 
-                PuntosX.Add(valor);
-            }
-        }
-
-        // Ahora los puntos X e Y son propiedades, no atributos. Si hay tiempo, evaluar si conviene poner esto en el setter de la priopiedad.
-        public void InicializarPuntosY(string puntosY)
-        {
-            PuntosY = new List<double>();
-
-            var arrDatos = puntosY.Split(';');
-
-            foreach (var dato in arrDatos)
-            {
-                var valor = double.Parse(dato);
-
-                PuntosY.Add(valor);
+                if (PuntosX.Contains(valor))
+                {
+                    var posicion = PuntosX.IndexOf(valor);
+                    PuntosX.Remove(posicion);
+                    PuntosY.Remove(posicion);
+                }
             }
         }
 
@@ -67,7 +101,7 @@ namespace UTN.MatematicaSuperior.Negocio
             }
         }
 
-        public bool DatosValidosX(string datos)
+        public bool DatosOrdenados(string datos)
         {
             // Valido que los puntos X esten ordenados.
             var arrDatos = datos.Split(';');
@@ -88,21 +122,24 @@ namespace UTN.MatematicaSuperior.Negocio
 
         public string InterpolarNGProgresivo()
         {
-            polinomio = NewtonGregory.Interpolar(true, PuntosX, PuntosY);
+            polinomio = NewtonGregory.Interpolar(true, PuntosX, PuntosY, out string pasos);
+            Pasos = pasos;
 
             return polinomio.ToString();
         }
 
         public string InterpolarNGRegresivo()
         {
-            polinomio = NewtonGregory.Interpolar(false, PuntosX, PuntosY);
+            polinomio = NewtonGregory.Interpolar(false, PuntosX, PuntosY, out string pasos);
+            Pasos = pasos;
 
             return polinomio.ToString();
         }
 
         public string InterpolarLagrange()
         {
-            polinomio = Lagrange.Interpolar(PuntosX, PuntosY);
+            polinomio = Lagrange.Interpolar(PuntosX, PuntosY, out string pasos);
+            Pasos = pasos;
 
             return polinomio.ToString();
         }

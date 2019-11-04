@@ -51,6 +51,7 @@
     <Compile Include="Evaluacion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SortTools.cs" />
+    <Compile Include="ValorRepetidoException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

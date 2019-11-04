@@ -7,36 +7,34 @@ namespace UTN.MatematicaSuperior.Consola
     class Program
     {
         private static Orquestador _orquestador;
+        private static readonly string escribaOpcion = "Escriba la opción que desea seleccionar.";
+        private static readonly string menuAnterior = "Presione una tecla para volver al menú anterior.";
 
         static void Main(string[] args)
         {
             _orquestador = new Orquestador();
             var opciones = new Dictionary<ConsoleKey, Action>
             {
-                {ConsoleKey.A, MenuIngresoDatos},
-                {ConsoleKey.B, MostrarPasosCalculo},
-                {ConsoleKey.C, EspecializarPolinomio},
-                {ConsoleKey.D, AlterarValores}
+                {ConsoleKey.A, MenuIngresoDatos}
             };
 
             var opcionSeleccionada = MenuPrincipal();
 
-            do
+            while (opcionSeleccionada != ConsoleKey.B)
             {
-                Action ejecutar;
+                opciones.TryGetValue(opcionSeleccionada, out Action ejecutar);
 
-                opciones.TryGetValue(opcionSeleccionada, out ejecutar);
-
-                if(ejecutar != null)
+                if (ejecutar != null)
                 {
                     ejecutar.Invoke();
-                } else
+                }
+                else
                 {
                     MenuOpcionIncorrecta();
                 }
 
                 opcionSeleccionada = MenuPrincipal();
-            } while (opcionSeleccionada != ConsoleKey.E);
+            }
         }
 
         public static ConsoleKey MenuPrincipal()
@@ -46,21 +44,18 @@ namespace UTN.MatematicaSuperior.Consola
             Console.WriteLine("FINTER");
             Console.WriteLine("======");
             Console.WriteLine();
-            Console.WriteLine("Escriba la opción que desea seleccionar.");
+            Console.WriteLine(escribaOpcion);
             Console.WriteLine();
             Console.WriteLine("A. Ingreso de datos");
-            Console.WriteLine("B. Mostrar pasos de cálculo");
-            Console.WriteLine("C. Especializar polinomio en un valor K");
-            Console.WriteLine("D. Alterar valores iniciales");
-            Console.WriteLine("E. Salir");
+            Console.WriteLine("B. Salir");
 
             return Console.ReadKey().Key;
         }
 
-        public static ConsoleKey MenuInterpolaciones()
+        public static ConsoleKey IngresarMenuInterpolaciones()
         {
             Console.Clear();
-            Console.WriteLine("Escriba la opción que desea seleccionar.");
+            Console.WriteLine(escribaOpcion);
             Console.WriteLine();
             Console.WriteLine("Interpolar por: ");
             Console.WriteLine();
@@ -70,53 +65,53 @@ namespace UTN.MatematicaSuperior.Consola
             Console.WriteLine("D. Volver al menú principal");
 
             return Console.ReadKey().Key;
+        }
 
+
+        public static ConsoleKey IngresarMenuPosteriorInterpolaciones()
+        {
+            Console.WriteLine(escribaOpcion);
+            Console.WriteLine();
+            Console.WriteLine("A. Mostrar pasos de cálculo");
+            Console.WriteLine("B. Especializar polinomio en un valor K");
+            Console.WriteLine("C. Alterar valores iniciales");
+            Console.WriteLine("D. Volver al menú anterior");
+
+            return Console.ReadKey().Key;
+        }
+
+        public static ConsoleKey MenuAlterarValores()
+        {
+            Console.WriteLine();
+            Console.WriteLine(escribaOpcion);
+            Console.WriteLine();
+            Console.WriteLine("A. Agregar puntos.");
+            Console.WriteLine("B. Eliminar puntos.");
+            Console.WriteLine("C. Volver al menú principal.");
+
+            return Console.ReadKey().Key;
         }
 
         public static void MenuIngresoDatos()
         {
-            var opciones = new Dictionary<ConsoleKey, Func<string>>
+            Console.Clear();
+            IngresoDatos(OpcionPuntosEnum.Inicializar);
+        }
+
+        public static void MenuInterpolaciones()
+        {
+            var opcionesInterpolacion = new Dictionary<ConsoleKey, Func<string>>
             {
                 {ConsoleKey.A, _orquestador.InterpolarLagrange},
                 {ConsoleKey.B, _orquestador.InterpolarNGProgresivo},
                 {ConsoleKey.C, _orquestador.InterpolarNGRegresivo}
             };
+            var opcionSeleccionada = IngresarMenuInterpolaciones();
 
-            Console.Clear();
-            Console.WriteLine("Ingrese los valores de X separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
 
-            var valoresX = Console.ReadLine();
-
-            if (_orquestador.DatosValidos(valoresX) && _orquestador.DatosValidosX(valoresX))
+            while (opcionSeleccionada != ConsoleKey.D)
             {
-                _orquestador.InicializarPuntosX(valoresX);
-
-            } else
-            {
-                DatosInvalidos();
-                return;
-            }
-
-            Console.Clear();
-            Console.WriteLine("Ingrese los valores de Y separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
-
-            var valoresY = Console.ReadLine();
-
-            if (_orquestador.DatosValidos(valoresY))
-            {
-                _orquestador.InicializarPuntosY(valoresY);
-            }
-            else
-            {
-                DatosInvalidos();
-                return;
-            }
-
-            var opcionSeleccionada = MenuInterpolaciones();
-
-            do
-            {
-                opciones.TryGetValue(opcionSeleccionada, out Func<string> interpolacion);
+                opcionesInterpolacion.TryGetValue(opcionSeleccionada, out Func<string> interpolacion);
 
                 if (interpolacion != null)
                 {
@@ -124,22 +119,132 @@ namespace UTN.MatematicaSuperior.Consola
                     Console.Clear();
                     Console.WriteLine("Polinomio interpolante: " + resultado);
                     Console.WriteLine();
-                    Console.WriteLine("Presione una tecla para continuar.");
-                    Console.ReadKey();
+                    Console.WriteLine();
+
+                    MenuPosteriorInterpolaciones(resultado);
                 }
                 else
                 {
-                    MenuOpcionIncorrecta();                    
+                    MenuOpcionIncorrecta();
                 }
 
-                opcionSeleccionada = MenuInterpolaciones();
-            } while (opcionSeleccionada != ConsoleKey.D);
+                opcionSeleccionada = IngresarMenuInterpolaciones();
+            }
+        }
+
+        public static void MenuPosteriorInterpolaciones(string resultado)
+        {
+            var opcionesPosteriorInterpolacion = new Dictionary<ConsoleKey, Action>
+            {
+                {ConsoleKey.A, MostrarPasosCalculo},
+                {ConsoleKey.B, EspecializarPolinomio},
+                {ConsoleKey.C, AlterarValores}
+            };
+            var opcionSeleccionada = IngresarMenuPosteriorInterpolaciones();
+
+            while (opcionSeleccionada != ConsoleKey.D)
+            {
+                opcionesPosteriorInterpolacion.TryGetValue(opcionSeleccionada, out Action posteriorInterpolacion);
+
+                if (posteriorInterpolacion != null)
+                {
+                    posteriorInterpolacion.Invoke();
+                }
+                else
+                {
+                    MenuOpcionIncorrecta();
+                }
+
+                Console.Clear();
+                Console.WriteLine("Polinomio interpolante: " + resultado);
+                Console.WriteLine();
+                Console.WriteLine();
+
+                opcionSeleccionada = IngresarMenuPosteriorInterpolaciones();
+            }
+        }
+
+        public static void IngresoDatos(OpcionPuntosEnum opcion)
+        {
+            var opcionesX = new Dictionary<OpcionPuntosEnum, Action<string>>
+            {
+                {OpcionPuntosEnum.Inicializar, _orquestador.InicializarPuntosX},
+                {OpcionPuntosEnum.Agregar, _orquestador.AgregarPuntosX},
+                {OpcionPuntosEnum.Eliminar, _orquestador.EliminarPuntos},
+            };
+
+            var opcionesY = new Dictionary<OpcionPuntosEnum, Action<string>>
+            {
+                {OpcionPuntosEnum.Inicializar, _orquestador.InicializarPuntosY},
+                {OpcionPuntosEnum.Agregar, _orquestador.AgregarPuntosY}
+            };
+
+            Action<string> ejecutar;
+
+            Console.WriteLine("Ingrese los valores de X separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
+
+            var valoresX = Console.ReadLine();
+
+            if (!_orquestador.DatosValidos(valoresX))
+            {
+                DatosInvalidos();
+                return;
+            }
+
+            if (!_orquestador.DatosOrdenados(valoresX))
+            {
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine("Los valores de las x deben estar ordenados. " + menuAnterior);
+                Console.WriteLine();
+                Console.ReadKey();
+                return;
+            }
+
+            opcionesX.TryGetValue(opcion, out ejecutar);
+
+            try
+            {
+                ejecutar.Invoke(valoresX);
+            }
+            catch (ValorRepetidoException)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Los valores de x no pueden estar repetidos. " + menuAnterior);
+                Console.WriteLine();
+                Console.ReadKey();
+                return;
+            }
+
+            if (opcion != OpcionPuntosEnum.Eliminar)
+            {
+                Console.Clear();
+                Console.WriteLine("Ingrese los valores de Y separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
+
+                var valoresY = Console.ReadLine();
+
+                if (_orquestador.DatosValidos(valoresY))
+                {
+                    opcionesY.TryGetValue(opcion, out ejecutar);
+
+                    ejecutar.Invoke(valoresY);
+                }
+                else
+                {
+                    DatosInvalidos();
+                    return;
+                }
+            }
+
+            MenuInterpolaciones();
         }
 
         public static void MostrarPasosCalculo()
         {
             Console.Clear();
-            Console.WriteLine("Presione una tecla para volver al menú principal.");
+            Console.WriteLine(_orquestador.Pasos);
+            Console.WriteLine();
+            Console.WriteLine(menuAnterior);
             Console.ReadKey();
         }
 
@@ -170,50 +275,59 @@ namespace UTN.MatematicaSuperior.Consola
             Console.WriteLine();
             Console.WriteLine("Presione una tecla para continuar.");
             Console.ReadKey();
-
         }
 
         public static void AlterarValores()
         {
-            Console.Clear();
+            var opcionesInterpolacion = new Dictionary<ConsoleKey, Action>
+            {
+                {ConsoleKey.A, AgregarPuntos},
+                {ConsoleKey.B, EliminarPuntos}
+            };
             
+            Console.Clear();
+            Console.WriteLine("Valores ingresados previamente:");
+            Console.Write("X: ");
 
-            if ((_orquestador.PuntosX != null) && (_orquestador.PuntosY != null))
+            foreach (var puntoX in _orquestador.PuntosX)
             {
-
-                Console.WriteLine("Valores ingresados previamente:");
-                Console.Write("X: ");
-
-                foreach (var puntoX in _orquestador.PuntosX)
-                {
-                    Console.Write(puntoX + ";");
-                }
-
-                Console.WriteLine("");
-                Console.Write("Y: ");
-
-                foreach (var puntoY in _orquestador.PuntosY)
-                {
-                    Console.Write(puntoY + ";");
-                }
-            }
-            else
-            {
-                Console.WriteLine("No hay valores iniciales. Presione una tecla para volver al menú principal.");
-                Console.ReadKey();
-                return;
+                Console.Write(puntoX + ";");
             }
 
             Console.WriteLine("");
-            Console.WriteLine("");
-            Console.WriteLine("Seleccione la opcion correcta ");
-            Console.WriteLine("A. Volver a ingresar puntos.");
-            Console.WriteLine("B. Volver al menú principal.");
+            Console.Write("Y: ");
 
-            var opcionSeleccionada = Console.ReadKey();
+            foreach (var puntoY in _orquestador.PuntosY)
+            {
+                Console.Write(puntoY + ";");
+            }
 
-            if (opcionSeleccionada.Key == ConsoleKey.B) return;
-            else MenuIngresoDatos();
+            var opcionSeleccionada = MenuAlterarValores();
+
+            while (opcionSeleccionada != ConsoleKey.C)
+            {
+                opcionesInterpolacion.TryGetValue(opcionSeleccionada, out Action accion);
+
+                if (accion != null)
+                {
+                    accion.Invoke();
+                }
+
+                Console.Clear();
+                opcionSeleccionada = MenuAlterarValores();
+            } 
+        }
+
+        public static void AgregarPuntos()
+        {
+            Console.Clear();
+            IngresoDatos(OpcionPuntosEnum.Agregar);
+        }
+
+        public static void EliminarPuntos()
+        {
+            Console.Clear();
+            IngresoDatos(OpcionPuntosEnum.Eliminar);
         }
 
         public static void DatosInvalidos()
