@@ -23,10 +23,14 @@ namespace UTN.MatematicaSuperior.Negocio
             double[] y = yList.ToArray();
 
             Lj = new Polynomial[n + 1];
-            
+
+            pasos = "Estos son los pasos de Lagrange.";
+
             // de cada Lj, denominador del productorio
             double[] denominadores = new double[n + 1];
             double comun_denominador = 1;
+
+            pasos += "\n\n1) Polinomios Li base:\n\n";
 
             // Por cada término calculo las bases polinómicas
             for (int j = 0; j <= n; j++)
@@ -54,6 +58,12 @@ namespace UTN.MatematicaSuperior.Negocio
                 factor[0] = y[j];
 
                 Lj[j] *= factor;
+
+                // Mostrar paso
+                factor = new Polynomial(0);
+                factor[0] = denominador;
+                factor = Lj[j] / factor;
+                pasos += factor.ToString() + "\n\n";
             }
 
             // instancio el polinomio de grado n que será el resultado
@@ -69,14 +79,16 @@ namespace UTN.MatematicaSuperior.Negocio
                 Polynomial factor = new Polynomial(0);
                 factor[0] = comun_denominador / denominadores[j];
                 polinomio += ( Lj[j] * factor);
-                
-                // al Lj lo divido para ya tenerlo listo
-                Lj[j] /= divisor;
             }
 
             polinomio /= divisor;
 
-            pasos = "Estos son los pasos de Lagrange.";
+            pasos += "\n\n2) Grado del polinomio: " + polinomio.Degree;
+
+            if(SortTools.IsEquidistant(x))
+                pasos += "\n\n3) Los puntos son equidistantes";
+            else
+                pasos += "\n\n3) Los puntos no son equidistantes";
 
             return polinomio;
         }

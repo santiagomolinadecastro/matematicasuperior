@@ -67,5 +67,29 @@ namespace UTN.MatematicaSuperior.Negocio
             }
             return true;
         }
+
+        /// <summary>
+        /// Determines if double array elements are equidistant
+        /// </summary>
+        public static bool IsEquidistant(double[] arr)
+        {
+            double diff = 0;
+
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (diff == 0)
+                {
+                    diff = Math.Abs(arr[i - 1] - arr[i]);
+                    continue;
+                }
+
+                if (Math.Abs(arr[i - 1] - arr[i]) != diff)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
