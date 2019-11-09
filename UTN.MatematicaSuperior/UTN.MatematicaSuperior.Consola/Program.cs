@@ -243,6 +243,8 @@ namespace UTN.MatematicaSuperior.Consola
         {
             Console.Clear();
             Console.WriteLine(_orquestador.Pasos);
+            Console.WriteLine("\n------------------------------");
+            Console.WriteLine(_orquestador.DatosExtra);
             Console.WriteLine();
             Console.WriteLine(menuAnterior);
             Console.ReadKey();

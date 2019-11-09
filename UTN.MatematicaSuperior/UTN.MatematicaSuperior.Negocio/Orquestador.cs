@@ -12,6 +12,8 @@ namespace UTN.MatematicaSuperior.Negocio
         public List<double> PuntosY { get; set; }
         public string Pasos { get; set; }
 
+        public string DatosExtra { get; set; }
+
         // Ahora los puntos X e Y son propiedades, no atributos. Si hay tiempo, evaluar si conviene poner esto en el setter de la priopiedad.
         public void InicializarPuntosX(string puntos)
         {
@@ -124,6 +126,7 @@ namespace UTN.MatematicaSuperior.Negocio
         {
             polinomio = NewtonGregory.Interpolar(true, PuntosX, PuntosY, out string pasos);
             Pasos = pasos;
+            ActualizarDatosExtra(polinomio);
 
             return polinomio.ToString();
         }
@@ -132,6 +135,7 @@ namespace UTN.MatematicaSuperior.Negocio
         {
             polinomio = NewtonGregory.Interpolar(false, PuntosX, PuntosY, out string pasos);
             Pasos = pasos;
+            ActualizarDatosExtra(polinomio);
 
             return polinomio.ToString();
         }
@@ -140,6 +144,7 @@ namespace UTN.MatematicaSuperior.Negocio
         {
             polinomio = Lagrange.Interpolar(PuntosX, PuntosY, out string pasos);
             Pasos = pasos;
+            ActualizarDatosExtra(polinomio);
 
             return polinomio.ToString();
         }
@@ -147,6 +152,16 @@ namespace UTN.MatematicaSuperior.Negocio
         public string EvaluarEnK()
         {
             return Evaluacion.EvaluarPolinomio(polinomio, _k).ToString();
+        }
+
+        private void ActualizarDatosExtra(Polynomial polinomio)
+        {
+            DatosExtra = "\n\nGrado del polinomio: " + polinomio.Degree + "\n\n";
+
+            if (SortTools.IsEquidistant(PuntosX.ToArray()))
+                DatosExtra += "Los puntos son equidistantes";
+            else
+                DatosExtra += "Los puntos no son equidistantes";
         }
 
         

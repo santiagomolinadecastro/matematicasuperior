@@ -83,13 +83,6 @@ namespace UTN.MatematicaSuperior.Negocio
 
             polinomio /= divisor;
 
-            pasos += "\n\n2) Grado del polinomio: " + polinomio.Degree;
-
-            if(SortTools.IsEquidistant(x))
-                pasos += "\n\n3) Los puntos son equidistantes";
-            else
-                pasos += "\n\n3) Los puntos no son equidistantes";
-
             return polinomio;
         }
     }
