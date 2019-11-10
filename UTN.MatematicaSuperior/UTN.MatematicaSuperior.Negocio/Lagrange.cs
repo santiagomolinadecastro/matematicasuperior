@@ -24,13 +24,9 @@ namespace UTN.MatematicaSuperior.Negocio
 
             Lj = new Polynomial[n + 1];
 
-            pasos = "Estos son los pasos de Lagrange.";
-
             // de cada Lj, denominador del productorio
             double[] denominadores = new double[n + 1];
             double comun_denominador = 1;
-
-            pasos += "\n\n1) Polinomios Li base:\n\n";
 
             // Por cada término calculo las bases polinómicas
             for (int j = 0; j <= n; j++)
@@ -58,12 +54,6 @@ namespace UTN.MatematicaSuperior.Negocio
                 factor[0] = y[j];
 
                 Lj[j] *= factor;
-
-                // Mostrar paso
-                factor = new Polynomial(0);
-                factor[0] = denominador;
-                factor = Lj[j] / factor;
-                pasos += factor.ToString() + "\n\n";
             }
 
             // instancio el polinomio de grado n que será el resultado
@@ -82,6 +72,77 @@ namespace UTN.MatematicaSuperior.Negocio
             }
 
             polinomio /= divisor;
+
+            // Mostrar paso
+            pasos = "Estos son los pasos de Lagrange.\n\n";
+
+            // Imprimo cada polinomio
+            pasos += "1) Polinomios Li base:\n\n";
+
+            // conversión a fracciones
+            for (int j = 0; j <= n; j++)
+            {
+                int grado = Lj[j].Degree;
+
+                pasos += "L" + j + ": ";
+
+                while (grado >= 0)
+                {
+                    Fraction fraccion = new Fraction((long)Lj[j][grado], (long)denominadores[j]);
+
+                    // Signo para separar término (menos el primero), si es neg. ya lo imprime
+                    if (grado < Lj[j].Degree && (Lj[j][grado] * denominadores[j]) > 0)
+                        pasos += "+";
+
+                    // imprimo el coeficiente sólo si es dif a cero o es polinomio grado cero
+                    if (Lj[j][grado] != 0 || (Lj[j].Degree == 0 && grado == 0))
+                        if (grado > 1)
+                            pasos += fraccion.ToString() + "x^" + grado;
+                        else if (grado == 1)
+                            pasos += fraccion.ToString() + "x";
+                        else
+                            pasos += fraccion.ToString();
+
+                    grado--;
+                }
+
+                pasos += "\n\n";
+            }
+
+            // Imprimo cada polinomio
+            pasos += "2) Armado del polinomio:\n\n";
+
+            // recorro del grado mayor al menor
+            for (int grado = n; grado >= 0; grado--)
+            {
+                if (grado < n)
+                    pasos += "+";
+
+                pasos += "(";
+
+                for (int j = 0; j <= n; j++)
+                {
+                    if (j > 0 && (Lj[j][grado] * denominadores[j]) >= 0)
+                        pasos += "+";
+
+                    Fraction fraccion = new Fraction((long)Lj[j][grado], (long)denominadores[j]);
+                    pasos += fraccion.ToString();
+                }
+
+                pasos += ")";
+
+                if(grado > 0)
+                    pasos += "x^" + grado;
+
+            }
+
+            pasos += "\n\n";
+
+            // Resultado
+            pasos += "3) Resultado:\n\n";
+            // Imprimo cada polinomio
+            pasos += polinomio.ToString() + "\n\n";
+
 
             return polinomio;
         }

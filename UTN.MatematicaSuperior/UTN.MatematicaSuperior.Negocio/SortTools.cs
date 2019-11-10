@@ -39,6 +39,21 @@ namespace UTN.MatematicaSuperior.Negocio
         }
 
         /// <summary>
+        /// Determines if int array is sorted from 0 -> Max
+        /// </summary>
+        public static bool IsSorted(double[] arr)
+        {
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i - 1] > arr[i])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        /// <summary>
         /// Determines if int array is sorted from Max -> 0
         /// </summary>
         public static bool IsSortedDescending(int[] arr)

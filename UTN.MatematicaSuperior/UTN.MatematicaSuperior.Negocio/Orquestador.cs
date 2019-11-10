@@ -108,7 +108,19 @@ namespace UTN.MatematicaSuperior.Negocio
             // Valido que los puntos X esten ordenados.
             var arrDatos = datos.Split(';');
 
-            return SortTools.IsSorted(arrDatos);
+            double[] arrDouble =new double[arrDatos.Length];
+
+            int i = 0;
+
+            foreach (var dato in arrDatos)
+            {
+                var valor = double.Parse(dato);
+                arrDouble[i] = valor;
+
+                i++;
+            }
+
+            return SortTools.IsSorted(arrDouble);
         }
 
         public bool PuntosIngresados()
