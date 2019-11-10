@@ -28,6 +28,16 @@ namespace UTN.MatematicaSuperior.Negocio
             AgregarPuntos(puntos, false);
         }
 
+        public void EditarPunto(string puntoAEditar, string puntoX, string puntoY)
+        {
+            var i = int.Parse(puntoAEditar);
+            var x = double.Parse(puntoX);
+            var y = double.Parse(puntoY);
+
+            PuntosX[i] = x;
+            PuntosY[i] = y;
+        }
+
         public void AgregarPuntosX(string puntos)
         {
             AgregarPuntos(puntos, true);

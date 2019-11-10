@@ -15,7 +15,6 @@ C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Neg
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CopyComplete
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.dll
 C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.pdb
-C:\Facultad\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csprojAssemblyReference.cache
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.dll
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.pdb
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Extreme.Numerics.dll

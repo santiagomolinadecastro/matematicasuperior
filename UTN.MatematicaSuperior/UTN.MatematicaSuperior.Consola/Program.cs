@@ -87,7 +87,8 @@ namespace UTN.MatematicaSuperior.Consola
             Console.WriteLine();
             Console.WriteLine("A. Agregar puntos.");
             Console.WriteLine("B. Eliminar puntos.");
-            Console.WriteLine("C. Volver al menú principal.");
+            Console.WriteLine("C. Editar puntos.");
+            Console.WriteLine("D. Volver al menú principal.");
 
             return Console.ReadKey().Key;
         }
@@ -284,11 +285,22 @@ namespace UTN.MatematicaSuperior.Consola
             var opcionesInterpolacion = new Dictionary<ConsoleKey, Action>
             {
                 {ConsoleKey.A, AgregarPuntos},
-                {ConsoleKey.B, EliminarPuntos}
+                {ConsoleKey.B, EliminarPuntos},
+                {ConsoleKey.C, EditarPuntos},
             };
             
             Console.Clear();
-            Console.WriteLine("Valores ingresados previamente:");
+            Console.WriteLine("Valores actuales:");
+            Console.Write("i: ");
+
+            int count = 0;
+            foreach (var puntoX in _orquestador.PuntosX)
+            {
+                Console.Write(count + ";");
+                count++;
+            }
+
+            Console.WriteLine("");
             Console.Write("X: ");
 
             foreach (var puntoX in _orquestador.PuntosX)
@@ -306,17 +318,25 @@ namespace UTN.MatematicaSuperior.Consola
 
             var opcionSeleccionada = MenuAlterarValores();
 
-            while (opcionSeleccionada != ConsoleKey.C)
+            while (opcionSeleccionada != ConsoleKey.D)
             {
-                opcionesInterpolacion.TryGetValue(opcionSeleccionada, out Action accion);
-
-                if (accion != null)
+                if (opcionSeleccionada == ConsoleKey.C)
                 {
-                    accion.Invoke();
+                    EditarPuntos();
+                    opcionSeleccionada = ConsoleKey.D;
                 }
+                else
+                {
+                    opcionesInterpolacion.TryGetValue(opcionSeleccionada, out Action accion);
 
-                Console.Clear();
-                opcionSeleccionada = MenuAlterarValores();
+                    if (accion != null)
+                    {
+                        accion.Invoke();
+                    }
+
+                    Console.Clear();
+                    opcionSeleccionada = MenuAlterarValores();
+                }
             } 
         }
 
@@ -330,6 +350,32 @@ namespace UTN.MatematicaSuperior.Consola
         {
             Console.Clear();
             IngresoDatos(OpcionPuntosEnum.Eliminar);
+        }
+
+        public static void EditarPuntos()
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Seleccione el punto que desea editar. Por ejemplo si es i=3, ingrese el número 3.");
+
+            var puntoAEditar = Console.ReadLine();
+            Console.WriteLine("Ingrese el valor de X. Por ejemplo 2.1");
+
+            var puntoX = Console.ReadLine();
+            Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
+
+            var puntoY = Console.ReadLine();
+            Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
+
+            try
+            {
+                _orquestador.EditarPunto(puntoAEditar, puntoX, puntoY);
+
+            }catch (Exception ex)
+            {
+                Console.WriteLine("Datos inválidos, por favor revise los datos ingresados.");
+                Console.ReadKey();
+            }
+
         }
 
         public static void DatosInvalidos()
