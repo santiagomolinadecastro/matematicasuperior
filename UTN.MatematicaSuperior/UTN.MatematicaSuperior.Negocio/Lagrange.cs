@@ -131,8 +131,10 @@ namespace UTN.MatematicaSuperior.Negocio
 
                 pasos += ")";
 
-                if(grado > 0)
+                if(grado > 1)
                     pasos += "x^" + grado;
+                else if(grado == 1)
+                    pasos += "x";
 
             }
 
