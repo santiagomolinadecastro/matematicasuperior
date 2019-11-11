@@ -48,7 +48,13 @@ namespace UTN.MatematicaSuperior.Negocio
                 denominadores[j] = denominador;
                 comun_denominador *= denominador;
 
-                Lj[j] = Polynomial.FromRoots(raices);
+                if (n != 0)
+                    Lj[j] = Polynomial.FromRoots(raices);
+                else
+                {
+                    Lj[j] = new Polynomial(0);
+                    Lj[j][0] = 1;
+                }
 
                 Polynomial factor = new Polynomial(0);
                 factor[0] = y[j];
