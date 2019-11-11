@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Extreme.Mathematics.Curves;
+using Fractions;
 
 namespace UTN.MatematicaSuperior.Negocio
 {

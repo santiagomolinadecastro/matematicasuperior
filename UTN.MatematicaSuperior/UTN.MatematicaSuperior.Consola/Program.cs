@@ -192,6 +192,15 @@ namespace UTN.MatematicaSuperior.Consola
                 return;
             }
 
+            if (valoresX.Split(';').Length < 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Es necesario ingresar al menos 2 valores de x. " + menuAnterior);
+                Console.WriteLine();
+                Console.ReadKey();
+                return;
+            }
+
             if (!_orquestador.DatosOrdenados(valoresX))
             {
                 Console.Clear();
@@ -370,7 +379,7 @@ namespace UTN.MatematicaSuperior.Consola
             {
                 _orquestador.EditarPunto(puntoAEditar, puntoX, puntoY);
 
-            }catch (Exception ex)
+            }catch (Exception)
             {
                 Console.WriteLine("Datos inválidos, por favor revise los datos ingresados.");
                 Console.ReadKey();

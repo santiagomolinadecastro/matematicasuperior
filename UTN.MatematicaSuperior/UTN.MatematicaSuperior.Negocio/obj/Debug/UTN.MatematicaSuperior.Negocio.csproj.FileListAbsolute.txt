@@ -24,3 +24,12 @@ C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.Matematic
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CopyComplete
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.dll
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.pdb
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.dll
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\UTN.MatematicaSuperior.Negocio.pdb
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Extreme.Numerics.dll
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Extreme.Numerics.xml
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csprojAssemblyReference.cache
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CoreCompileInputs.cache
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csproj.CopyComplete
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.dll
+C:\Users\mat.RIOPLATENSE.000\Source\Repos\santiagomolinadecastro\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.pdb
