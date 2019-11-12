@@ -192,7 +192,7 @@ namespace UTN.MatematicaSuperior.Consola
                 return;
             }
 
-            if (valoresX.Split(';').Length < 2)
+            if (valoresX.Split(';').Length < 2 && opcion != OpcionPuntosEnum.Agregar)
             {
                 Console.Clear();
                 Console.WriteLine("Es necesario ingresar al menos 2 valores de x. " + menuAnterior);
