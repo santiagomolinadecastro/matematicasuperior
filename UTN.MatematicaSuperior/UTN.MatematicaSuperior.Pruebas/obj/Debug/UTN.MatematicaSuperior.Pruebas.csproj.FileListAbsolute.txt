@@ -55,3 +55,6 @@ C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.Matematic
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Pruebas\obj\Debug\UTN.MatematicaSuperior.Pruebas.csproj.CopyComplete
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Pruebas\obj\Debug\UTN.MatematicaSuperior.Pruebas.dll
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Pruebas\obj\Debug\UTN.MatematicaSuperior.Pruebas.pdb
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Pruebas\bin\Debug\Fractions.dll
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Pruebas\bin\Debug\Fractions.pdb
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Pruebas\bin\Debug\Fractions.xml
