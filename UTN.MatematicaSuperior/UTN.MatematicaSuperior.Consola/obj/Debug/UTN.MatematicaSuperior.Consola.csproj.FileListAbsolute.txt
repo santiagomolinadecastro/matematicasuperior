@@ -41,3 +41,6 @@ C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.Matematic
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.csproj.CopyComplete
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.exe
 C:\Users\Marcelo\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\obj\Debug\UTN.MatematicaSuperior.Consola.pdb
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\Fractions.dll
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\Fractions.pdb
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Consola\bin\Debug\Fractions.xml
