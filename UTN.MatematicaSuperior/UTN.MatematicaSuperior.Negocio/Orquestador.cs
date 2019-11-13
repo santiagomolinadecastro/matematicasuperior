@@ -83,8 +83,8 @@ namespace UTN.MatematicaSuperior.Negocio
                 if (PuntosX.Contains(valor))
                 {
                     var posicion = PuntosX.IndexOf(valor);
-                    PuntosX.Remove(posicion);
-                    PuntosY.Remove(posicion);
+                    PuntosX.RemoveAt(posicion);
+                    PuntosY.RemoveAt(posicion);
                 }
             }
         }
