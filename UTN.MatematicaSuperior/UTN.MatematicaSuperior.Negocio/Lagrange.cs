@@ -65,20 +65,29 @@ namespace UTN.MatematicaSuperior.Negocio
 
             // instancio el polinomio de grado n que será el resultado
             Polynomial polinomio = new Polynomial(n);
-            polinomio[0] = 0;
 
-            Polynomial divisor = new Polynomial(0);
-            divisor[0] = comun_denominador;
-            
-            // multiplico cada Li con el factor del común divisor
-            for (int j = 0; j <= n; j++)
+
+                // multiplico cada Li con el factor del común divisor
+            int grado = n;
+
+            while (grado >= 0)
             {
-                Polynomial factor = new Polynomial(0);
-                factor[0] = comun_denominador / denominadores[j];
-                polinomio += ( Lj[j] * factor);
-            }
+                Fraction sumatoria = Fraction.FromDecimal(0);
 
-            polinomio /= divisor;
+                for (int j = 0; j <= n; j++)
+                {
+                    Fraction fraccion = Fraction.FromDecimal((decimal)Lj[j][grado]);
+                    Fraction fraccionb = new Fraction((decimal)denominadores[j]);
+                    fraccion = fraccion / fraccionb;
+                    fraccion.Reduce();
+
+                    sumatoria += fraccion;
+                }
+
+                polinomio[grado] = sumatoria.ToDouble();
+
+                grado--;
+            }
 
             // Mostrar paso
             pasos = "Estos son los pasos de Lagrange.\n\n";
@@ -89,13 +98,16 @@ namespace UTN.MatematicaSuperior.Negocio
             // conversión a fracciones
             for (int j = 0; j <= n; j++)
             {
-                int grado = Lj[j].Degree;
+                grado = Lj[j].Degree;
 
                 pasos += "L" + j + ": ";
 
                 while (grado >= 0)
                 {
-                    Fraction fraccion = new Fraction((long)Lj[j][grado], (long)denominadores[j]);
+                    Fraction fraccion = Fraction.FromDecimal((decimal)Lj[j][grado]);
+                    Fraction fraccionb = new Fraction((decimal)denominadores[j]);
+                    fraccion = fraccion / fraccionb;
+                    fraccion.Reduce();
 
                     // Signo para separar término (menos el primero), si es neg. ya lo imprime
                     if (grado < Lj[j].Degree && (Lj[j][grado] * denominadores[j]) > 0)
@@ -120,7 +132,7 @@ namespace UTN.MatematicaSuperior.Negocio
             pasos += "2) Armado del polinomio:\n\n";
 
             // recorro del grado mayor al menor
-            for (int grado = n; grado >= 0; grado--)
+            for (grado = n; grado >= 0; grado--)
             {
                 if (grado < n)
                     pasos += "+";
@@ -132,7 +144,11 @@ namespace UTN.MatematicaSuperior.Negocio
                     if (j > 0 && (Lj[j][grado] * denominadores[j]) >= 0)
                         pasos += "+";
 
-                    Fraction fraccion = new Fraction((long)Lj[j][grado], (long)denominadores[j]);
+                    Fraction fraccion = Fraction.FromDecimal((decimal)Lj[j][grado]);
+                    Fraction fraccionb = new Fraction((decimal)denominadores[j]);
+                    fraccion = fraccion / fraccionb;
+                    fraccion.Reduce();
+
                     pasos += fraccion.ToString();
                 }
 
