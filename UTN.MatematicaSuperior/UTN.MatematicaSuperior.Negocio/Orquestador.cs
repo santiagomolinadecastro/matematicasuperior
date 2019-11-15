@@ -33,6 +33,19 @@ namespace UTN.MatematicaSuperior.Negocio
             var i = int.Parse(puntoAEditar);
             var x = double.Parse(puntoX);
             var y = double.Parse(puntoY);
+            double[] PivotX = PuntosX.ToArray();
+
+            if (PuntosX.Contains(x))
+            {
+                throw new ValorRepetidoException();
+            }
+
+            PivotX[i] = x;
+
+            if (!SortTools.IsSorted(PivotX))
+            {
+                throw new NoOrdenado();
+            }
 
             PuntosX[i] = x;
             PuntosY[i] = y;

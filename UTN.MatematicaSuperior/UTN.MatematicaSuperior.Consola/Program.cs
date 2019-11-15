@@ -182,7 +182,7 @@ namespace UTN.MatematicaSuperior.Consola
 
             Action<string> ejecutar;
 
-            Console.WriteLine("Ingrese los valores de X separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
+            Console.WriteLine("Ingrese los valores de X separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2,3;2,1;1,0");
 
             var valoresX = Console.ReadLine();
 
@@ -229,7 +229,7 @@ namespace UTN.MatematicaSuperior.Consola
             if (opcion != OpcionPuntosEnum.Eliminar)
             {
                 Console.Clear();
-                Console.WriteLine("Ingrese los valores de Y separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
+                Console.WriteLine("Ingrese los valores de Y separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2,3;2,1;1,0");
 
                 var valoresY = Console.ReadLine();
 
@@ -365,21 +365,36 @@ namespace UTN.MatematicaSuperior.Consola
         {
             Console.WriteLine("");
             Console.WriteLine("Seleccione el punto que desea editar. Por ejemplo si es i=3, ingrese el número 3.");
-
             var puntoAEditar = Console.ReadLine();
-            Console.WriteLine("Ingrese el valor de X. Por ejemplo 2.1");
 
+            Console.WriteLine("Ingrese el valor de X. Por ejemplo 2,1");
             var puntoX = Console.ReadLine();
-            Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
 
+            Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3,2");
             var puntoY = Console.ReadLine();
-            Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
-
+            
             try
             {
                 _orquestador.EditarPunto(puntoAEditar, puntoX, puntoY);
 
-            }catch (Exception)
+            }
+            catch (ValorRepetidoException)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Los valores de x no pueden estar repetidos, por favor revise los datos ingresados.");
+                Console.WriteLine();
+                Console.ReadKey();
+                return;
+            }
+            catch (NoOrdenado)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Los valores de x deben quedar ordenados, por favor revise los datos ingresados. ");
+                Console.WriteLine();
+                Console.ReadKey();
+                return;
+            }
+            catch (Exception)
             {
                 Console.WriteLine("Datos inválidos, por favor revise los datos ingresados.");
                 Console.ReadKey();
