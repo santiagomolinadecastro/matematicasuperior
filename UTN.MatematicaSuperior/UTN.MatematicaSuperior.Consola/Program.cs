@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UTN.MatematicaSuperior.Negocio;
 
 namespace UTN.MatematicaSuperior.Consola
@@ -87,8 +88,8 @@ namespace UTN.MatematicaSuperior.Consola
             Console.WriteLine();
             Console.WriteLine("A. Agregar puntos.");
             Console.WriteLine("B. Eliminar puntos.");
-            Console.WriteLine("C. Editar puntos.");
-            Console.WriteLine("D. Volver al menú principal.");
+            Console.WriteLine("C. Volver al menú principal.");
+            //Console.WriteLine("C. Editar puntos.");
 
             return Console.ReadKey().Key;
         }
@@ -182,7 +183,7 @@ namespace UTN.MatematicaSuperior.Consola
 
             Action<string> ejecutar;
 
-            Console.WriteLine("Ingrese los valores de X separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
+            Console.WriteLine("Ingrese los valores de X separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2,3;2,1;1");
 
             var valoresX = Console.ReadLine();
 
@@ -192,7 +193,7 @@ namespace UTN.MatematicaSuperior.Consola
                 return;
             }
 
-            if (valoresX.Split(';').Length < 2 && opcion != OpcionPuntosEnum.Agregar)
+            if (valoresX.Split(';').Length < 2 && opcion == OpcionPuntosEnum.Inicializar)
             {
                 Console.Clear();
                 Console.WriteLine("Es necesario ingresar al menos 2 valores de x. " + menuAnterior);
@@ -204,7 +205,6 @@ namespace UTN.MatematicaSuperior.Consola
             if (!_orquestador.DatosOrdenados(valoresX))
             {
                 Console.Clear();
-                Console.WriteLine();
                 Console.WriteLine("Los valores de las x deben estar ordenados. " + menuAnterior);
                 Console.WriteLine();
                 Console.ReadKey();
@@ -229,7 +229,7 @@ namespace UTN.MatematicaSuperior.Consola
             if (opcion != OpcionPuntosEnum.Eliminar)
             {
                 Console.Clear();
-                Console.WriteLine("Ingrese los valores de Y separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2.3;2.1;1.0");
+                Console.WriteLine("Ingrese los valores de Y separados por punto y coma (;) y al finalizar, presione la tecla enter. Ejemplo: 2,3;2,1;1");
 
                 var valoresY = Console.ReadLine();
 
@@ -294,48 +294,52 @@ namespace UTN.MatematicaSuperior.Consola
             var opcionesInterpolacion = new Dictionary<ConsoleKey, Action>
             {
                 {ConsoleKey.A, AgregarPuntos},
-                {ConsoleKey.B, EliminarPuntos},
-                {ConsoleKey.C, EditarPuntos},
+                {ConsoleKey.B, EliminarPuntos}
+                //,{ConsoleKey.C, EditarPuntos}
             };
-            
+
             Console.Clear();
             Console.WriteLine("Valores actuales:");
-            Console.Write("i: ");
+            //Console.Write("i: ");
 
-            int count = 0;
-            foreach (var puntoX in _orquestador.PuntosX)
-            {
-                Console.Write(count + ";");
-                count++;
-            }
+            //int count = 0;
+            //foreach (var puntoX in _orquestador.PuntosX)
+            //{
+            //    Console.Write(count + ";");
+            //    count++;
+            //}
 
-            Console.WriteLine("");
+            Console.WriteLine();
             Console.Write("X: ");
 
-            foreach (var puntoX in _orquestador.PuntosX)
-            {
-                Console.Write(puntoX + ";");
-            }
+            //foreach (var puntoX in _orquestador.PuntosX)
+            //{
+            //    Console.Write(puntoX + ";");
+            //}
 
-            Console.WriteLine("");
+            Console.WriteLine(_orquestador.PuntosX.Select(x => x.ToString()).Aggregate((x, y) => x + ";" + y));
             Console.Write("Y: ");
 
-            foreach (var puntoY in _orquestador.PuntosY)
-            {
-                Console.Write(puntoY + ";");
-            }
+            //foreach (var puntoY in _orquestador.PuntosY)
+            //{
+            //    Console.Write(puntoY + ";");
+            //}
+
+            Console.WriteLine(_orquestador.PuntosY.Select(x => x.ToString()).Aggregate((x, y) => x + ";" + y));
+
+            Console.WriteLine();
 
             var opcionSeleccionada = MenuAlterarValores();
 
-            while (opcionSeleccionada != ConsoleKey.D)
+            while (opcionSeleccionada != ConsoleKey.C)
             {
-                if (opcionSeleccionada == ConsoleKey.C)
-                {
-                    EditarPuntos();
-                    opcionSeleccionada = ConsoleKey.D;
-                }
-                else
-                {
+                //if (opcionSeleccionada == ConsoleKey.C)
+                //{
+                //    EditarPuntos();
+                //    opcionSeleccionada = ConsoleKey.D;
+                //}
+                //else
+                //{
                     opcionesInterpolacion.TryGetValue(opcionSeleccionada, out Action accion);
 
                     if (accion != null)
@@ -345,7 +349,7 @@ namespace UTN.MatematicaSuperior.Consola
 
                     Console.Clear();
                     opcionSeleccionada = MenuAlterarValores();
-                }
+                //}
             } 
         }
 
@@ -361,31 +365,31 @@ namespace UTN.MatematicaSuperior.Consola
             IngresoDatos(OpcionPuntosEnum.Eliminar);
         }
 
-        public static void EditarPuntos()
-        {
-            Console.WriteLine("");
-            Console.WriteLine("Seleccione el punto que desea editar. Por ejemplo si es i=3, ingrese el número 3.");
+        //public static void EditarPuntos()
+        //{
+        //    Console.WriteLine("");
+        //    Console.WriteLine("Seleccione el punto que desea editar. Por ejemplo si es i=3, ingrese el número 3.");
 
-            var puntoAEditar = Console.ReadLine();
-            Console.WriteLine("Ingrese el valor de X. Por ejemplo 2.1");
+        //    var puntoAEditar = Console.ReadLine();
+        //    Console.WriteLine("Ingrese el valor de X. Por ejemplo 2.1");
 
-            var puntoX = Console.ReadLine();
-            Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
+        //    var puntoX = Console.ReadLine();
+        //    Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
 
-            var puntoY = Console.ReadLine();
-            Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
+        //    var puntoY = Console.ReadLine();
+        //    Console.WriteLine("Ingrese el valor de Y. Por ejemplo 3.2");
 
-            try
-            {
-                _orquestador.EditarPunto(puntoAEditar, puntoX, puntoY);
+        //    try
+        //    {
+        //        _orquestador.EditarPunto(puntoAEditar, puntoX, puntoY);
 
-            }catch (Exception)
-            {
-                Console.WriteLine("Datos inválidos, por favor revise los datos ingresados.");
-                Console.ReadKey();
-            }
+        //    }catch (Exception)
+        //    {
+        //        Console.WriteLine("Datos inválidos, por favor revise los datos ingresados.");
+        //        Console.ReadKey();
+        //    }
 
-        }
+        //}
 
         public static void DatosInvalidos()
         {

@@ -37,3 +37,4 @@ C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.Matemat
 C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\System.ComponentModel.TypeConverter.dll
 C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Fractions.pdb
 C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\bin\Debug\Fractions.xml
+C:\Users\fyuffrida\Desktop\matematicasuperior\UTN.MatematicaSuperior\UTN.MatematicaSuperior.Negocio\obj\Debug\UTN.MatematicaSuperior.Negocio.csprojAssemblyReference.cache
